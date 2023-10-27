@@ -1,0 +1,103 @@
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+      <h2>Contact</h2>
+      <p>Nulla dolorum nulla nesciunt rerum facere sed ut inventore quam porro nihil id ratione ea sunt quis dolorem
+        dolore earum</p>
+    </div>
+
+    <div class="row gx-lg-0 gy-4">
+
+      <div class="col-lg-4">
+
+        <div class="info-container d-flex flex-column align-items-center justify-content-center">
+          
+          <div class="info-item d-flex" (click)="contentService.ClickInfo('email')">
+            <i class="bi bi-envelope flex-shrink-0"></i>
+            <div>
+                <h4>Email</h4>              
+              </div>
+            </div><!-- End Info Item -->
+         
+
+          <div class="info-item d-flex" (click)="contentService.ClickInfo('telephone')">
+            <i class="bi bi-phone flex-shrink-0"></i>
+            <div>
+              <h4>Call</h4>
+            </div>
+          </div><!-- End Info Item -->
+          
+          <div class="info-item d-flex" (click)="contentService.ClickInfo('facebook')">
+            <i class="bi bi-facebook flex-shrink-0"></i>
+            <div>
+              <h4>Facebook</h4>
+              
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="info-item d-flex" (click)="contentService.ClickInfo('youtube')">
+            <i class="bi bi-youtube flex-shrink-0"></i>
+            <div>
+              <h4>Youtube</h4>
+              
+            </div>
+          </div><!-- End Info Item -->
+        </div>
+
+      </div>
+
+      <div class="col-lg-8">
+        <form action="forms/contact.php" [formGroup]="formgroup" method="get" role="form" class="php-email-form">
+          <div class="row">
+            <div class="form-group mt-3">
+
+              <!--Back here, alter your db to store name and time of send , table,package, api (modol , core , repo and service)-->
+              <input type="text" [formControl]="name" class="form-control" name="name" id="name"
+                placeholder="Your Name" required (change)="getErrorMessage(name,'name')">
+              <p style="color:red" *ngIf="name.invalid">
+                {{nameError}}
+              <p>
+
+            </div>
+
+            <div class="form-group mt-3">
+
+              <input type="email" [formControl]="email" class="form-control" name="email" id="email"
+                placeholder="Your Email" required (change)="getErrorMessage(email,'email')">
+              <p style="color:red" *ngIf="email.invalid">
+                {{emailError}}
+              <p>
+
+            </div>
+
+          </div>
+          <div class="form-group mt-3">
+            <input type="text" class="form-control" [formControl]="title" name="subject" id="subject"
+              placeholder="Subject" required (change)="getErrorMessage(title,'title')">
+            <p style="color:red" *ngIf="title.invalid">
+              {{titleError}}
+            </p>
+          </div>
+          <div class="form-group mt-3">
+            <textarea class="form-control" [formControl]="message" name="message" rows="7" placeholder="Message"
+              required (change)="getErrorMessage(message,'message')"></textarea>
+            <p style="color:red" *ngIf="message.invalid">
+              {{messageError}}
+            </p>
+          </div>
+          <div class="my-3">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your message has been sent. Thank you!</div>
+          </div>
+          <div class="text-center"><button type="submit" (click)="checkAllfileds()" >Send
+              Message</button></div>
+        </form>
+      </div><!-- End Contact Form -->
+
+    </div>
+
+  </div>
+</section><!-- End Contact Section -->

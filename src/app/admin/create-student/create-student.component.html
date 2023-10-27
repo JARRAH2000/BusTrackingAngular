@@ -1,0 +1,237 @@
+<div id="wrapper" style="background-color: #008379;">
+
+    <app-sidebar></app-sidebar>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column" style="background-color: #008379;">
+
+        <!-- Main Content -->
+        <div id="content" style="background-color: #008379;">
+            <!-- <div>
+                <app-navigation></app-navigation>
+            </div> -->
+            <div>
+
+                <!-- Page Content -->
+                <div class="container mt-5">
+                    <div class="section-header">
+                        <h2>New Student</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h1 class="card-title text-center">Student Picture</h1>
+                                    <hr>
+                                    <div class="d-flex justify-content-center">
+                                        <img src="https://via.placeholder.com/150" id="chosenImage" alt=""
+                                            class="rounded-circle img-fluid">
+
+
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-lg-6 offset-lg-3">
+                                            <div class="d-flex justify-content-center">
+                                                <input type="file" accept="image/*" #file
+                                                    (change)="UploadStudentImage(file.files)" id="image"
+                                                    class="btn btn-outline-primary btn-sm">
+                                                <button type="submit" (click)="removeImage()" style="display: none;"
+                                                    id="remove">Remove</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h1 class="card-title text-center">Student Information</h1>
+                                    <hr>
+                                    <form [formGroup]="studentForm">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="name">Name</label>
+                                                    <input type="text" formControlName="name" class="form-control"
+                                                        id="name" value="name"
+                                                        (change)="getErrorMessage(studentForm.controls['name'],'name')">
+                                                    <p style="color:red" *ngIf="studentForm.controls['name'].invalid">
+                                                        {{nameError}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                   
+
+                                                    <label for="parentid">Parent Name</label>
+                                                    <select id="parentid" name="parentid" formControlName="parentid"
+                                                        (change)="getErrorMessage(studentForm.controls['parentid'],'parent')">
+                                                        <option *ngFor="let parent of parentService.allParents"
+                                                            [value]="parent.id">{{parent.user.firstname}}
+                                                            {{parent.user.middlename}} {{parent.user.lastname}}</option>
+                                                    </select>
+                                                    <p style="color:red"
+                                                        *ngIf="studentForm.controls['parentid'].invalid">
+                                                        {{parentError}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="birthdate">birthdate</label>
+                                                    <input type="date" formControlName="birthdate" class="form-control"
+                                                        id="birthdate"
+                                                        (change)="getErrorMessage(studentForm.controls['birthdate'],'birthdate')">
+                                                    <p style="color:red"
+                                                        *ngIf="studentForm.controls['birthdate'].invalid">
+                                                        {{birthdateError}}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+
+                                                    <label style="display: inline-flex;">sex</label>
+                                                    <div class="form-row">
+                                                        <div class="col-lg-6 col-md-6 col-sm-6"
+                                                            style="display: inline-flex;">
+                                                            <input type="radio" formControlName="sex" id="male"
+                                                                value="M" checked name="sex"
+                                                                (change)="getErrorMessage(studentForm.controls['sex'],'sex')">
+                                                            <label for="male"> &nbsp;Male</label>
+
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-6 col-sm-6"
+                                                            style="display: inline-flex;">
+                                                            <input type="radio" formControlName="sex" value="F"
+                                                                id="female" name="sex"
+                                                                (change)="getErrorMessage(studentForm.controls['sex'],'sex')">
+                                                            <label for="female"> &nbsp;Female</label>
+                                                        </div>
+                                                        <p style="color:red"
+                                                            *ngIf="studentForm.controls['sex'].invalid">
+                                                            {{sexError}}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="statusid">status</label>
+                                                    <select id="statusid" name="statusid" formControlName="statusid"
+                                                        (change)="getErrorMessage(studentForm.controls['statusid'],'status')">
+                                                        <option *ngFor="let state of studentStatusService.AllStatuses"
+                                                            [value]="state.id">{{state.status}}</option>
+                                                    </select>
+                                                    <p style="color:red"
+                                                        *ngIf="studentForm.controls['statusid'].invalid">
+                                                        {{statusError}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="longitude">longitude</label>
+                                                    <input type="text" formControlName="longitude" class="form-control"
+                                                        id="longitude"
+                                                        (change)="getErrorMessage(studentForm.controls['longitude'],'longitude')">
+                                                    <p style="color: red;"
+                                                        *ngIf="studentForm.controls['longitude'].invalid">
+                                                        {{longitudeError}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="latitude">latitude</label>
+                                                    <input type="text" formControlName="latitude" class="form-control"
+                                                        id="latitude"
+                                                        (change)="getErrorMessage(studentForm.controls['latitude'],'latitude')">
+                                                    <p style="color:red"
+                                                        *ngIf="studentForm.controls['latitude'].invalid">
+                                                        {{latitudeError}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-6 offset-lg-3">
+                                                <div class="form-group">
+                                                    <button type="submit" (click)="CreateStudent()"
+                                                        class="btn btn-primary btn-block">Register</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <script>
+                    $(document).ready(function () {
+                        // Get the tallest column height
+                        var maxHeight = 0;
+                        $('.row > .col').each(function () {
+                            var height = $(this).outerHeight();
+                            if (height > maxHeight) {
+                                maxHeight = height;
+                            }
+                        });
+
+                        // Set all columns to the same height
+                        $('.row > .col').css('min-height', maxHeight);
+                    });
+                </script>
+            </div>
+        </div>
+        <!-- End of Main Content -->
+    </div>
+    <!-- End of Content Wrapper -->
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top" style="background-color: #008379;">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" style="background-color: #008379;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="login.html">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)"
+    template="<img src='https://3.files.edl.io/4f80/20/08/12/191120-9dc15182-a833-44a6-9db0-55080d7d824c.gif' />">
+</ngx-spinner>

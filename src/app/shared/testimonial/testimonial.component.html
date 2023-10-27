@@ -1,0 +1,78 @@
+<h1>Tell us about your experiance</h1>
+<!-- Page Content -->
+<div class="container mt-5">
+    
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <form [formGroup]="testimonialForm">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                       
+                                        <img src="../../../assets/HomeAssets/img/breadcrumbs-bg.jpg" id="image"
+                                            height="250" width="240">
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-lg-9" id="info">
+
+                                    <div class="row">
+
+                                        <div class="col-lg-8">
+                                            <div class="form-group">
+                                                <label for="name">Name</label>
+                                                <input type="text" class="form-control" id="name" [value]="Name" readonly>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label for="job">Job</label>
+                                                <input type="text" class="form-control" id="job" [value]="Job" readonly>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-lg-12">
+                                            <textarea rows="8" id="messsag" formControlName="message"></textarea>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+
+                                <div class="col-lg-8">
+                                    <input type="checkbox" checked id="agree" readonly>
+                                    <label for="agree" id="lbl">&nbsp;&nbsp;I agree to publish it after administrative review</label>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    
+                                    <button type="submit" class="btn btn-primary btn-block" (click)="CreateTestimonial()">Send</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br>
+</div>
+
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)"
+    template="<img src='https://3.files.edl.io/4f80/20/08/12/191120-9dc15182-a833-44a6-9db0-55080d7d824c.gif' />">
+</ngx-spinner>

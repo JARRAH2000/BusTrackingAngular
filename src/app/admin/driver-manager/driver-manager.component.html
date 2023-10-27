@@ -1,0 +1,315 @@
+
+<div id="wrapper" style="background-color: #008379;">
+
+    <app-sidebar>
+
+    </app-sidebar>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column" style="background-color: #008379;">
+
+        <!-- Main Content -->
+        <div id="content" style="background-color: #008379;">
+            <!-- <div>
+                <app-navigation></app-navigation>
+            </div> -->
+            <div>
+
+                <!-- Page Content -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800" style="color:white;text-align: center;font-size: 35px;">
+                        drivers</h1><br>
+                    
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <!-- <div class="card-header py-3">
+                            <form>
+                                <label for="from">From&nbsp;</label>
+                                <input type="date" [(ngModel)]="from" name="from" id="from">&nbsp; &nbsp;
+                                <label for="to">To&nbsp;</label>
+                                <input type="date" [(ngModel)]="to" name="to">
+                                &nbsp; 
+                                <button  style="background-color: #008379;color:white" (click)="DateInterval()">search</button>
+                            </form>
+                        </div> -->
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>image</th>
+                                            <th>Name</th>
+                                            <th>Status</th>
+                                            
+                                            <th>Manage</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+
+                                    </tfoot>
+                                    <tbody>
+                                        <tr *ngFor="let driver of driverService.allDrivers">
+                                            <td><img src="../../../assets/Images/{{driver.user.image}}" width="100" height="100"></td>
+                                            <td>{{driver.user.firstname}} {{driver.user.lastname}}</td>
+                                            <td>{{driver.status.status}}</td>
+                                            
+                                            
+                                            <td>
+                                                <button type="submit" (click)="OpenDialog(this.Details,driver.id)">Details</button>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+                <!--Update Dialog-->
+                <ng-template #ShowDetails>
+
+                    <!-- Page Content -->
+                    <div class="container mt-5">
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+
+                                        <form>
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <img src="../../../assets/Images/{{driverService.driver.user.image}}" id="image"
+                                                                height="250" width="240">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-8" id="info">
+
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="form-group">
+                                                                    <label>Name:
+                                                                        {{driverService.driver.user.firstname}}
+                                                                        {{driverService.driver.user.middlename}}
+                                                                        {{driverService.driver.user.lastname}}</label>
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row">
+
+                                                            <div class="col-lg-12">
+                                                                <div class="form-group">
+                                                                    <label for="name">BirthDate: {{driverService.driver.user.birthdate.substring(0,10)}}</label>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="form-group">
+                                                                    <label for="job">Status: {{driverService.driver.statusid=='1'?"Busy":"Available"}}</label>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="form-group">
+                                                                    <label>Email: {{driverService.driver.user.logins[0].email}}</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="form-group">
+                                                                    <label for="job">Phone: {{driverService.driver.user.phone}}</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="form-group">
+                                                                    <label>License date: {{driverService.driver.licensedate.substring(0,10)}}</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <button type="submit" mat-dialog-close (click)="OpenDialog(this.Update,driverService.driver.id)">Update</button>
+                                                        <!-- <button mat-dialog-close
+                                                            (click)="Updatedriver(driverService.driver.id,driverService.driver.statusid==1?2:1)">{{driverService.driver.statusid==1?'set Available':'set Busy'}}</button> -->
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <button mat-dialog-close type="submit"
+                                                            (click)="OpenDialog(this.Delete,driverService.driver.id)">Delete</button>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <button mat-dialog-close type="submit">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </ng-template>
+
+                <!--Delete Dialog-->
+                <ng-template #ConfirmDeletion>
+                    <!-- Page Content -->
+                    <div class="container mt-5">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-lg-9" id="info">
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="form-group">
+                                                                    <label style="color:white">Are you sure ?</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <button type="submit" mat-dialog-close (click)="DeleteDriver(driverService.driver.userid)">Delete</button>
+                                                    </div>
+                                                    &nbsp;&nbsp;&nbsp;
+                                                    <div class="col-lg-4">
+                                                        <button type="submit" mat-dialog-close (click)="OpenDialog(this.Details,driverService.driver.id)">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </ng-template>
+
+
+                <ng-template #Update>
+                    <div class="container mt-5">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <form [formGroup]="UpdateForm">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-lg-12" id="info">
+                                                        <div class="row">
+                                                            License date: <input type="date" formControlName="licensedate">
+                                                        </div>
+                                                        <br>
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <label>Status: </label>
+                                                                <input type="radio" id="busy" formControlName="statusid" value="1">
+                                                                <label for="busy">Busy</label>
+
+                                                                <input type="radio" id="available" formControlName="statusid" value="2">
+                                                                <label for="available">Available</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <button type="submit" mat-dialog-close (click)="UpdateDriver()">Update</button>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                               <button type="submit" mat-dialog-close >Cancel</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <script>
+                    $(document).ready(function () {
+                        // Get the tallest column height
+                        var maxHeight = 0;
+                        $('.row > .col').each(function () {
+                            var height = $(this).outerHeight();
+                            if (height > maxHeight) {
+                                maxHeight = height;
+                            }
+                        });
+
+                        // Set all columns to the same height
+                        $('.row > .col').css('min-height', maxHeight);
+                    });
+                </script>
+
+
+            </div>
+        </div>
+        <!-- End of Main Content -->
+    </div>
+    <!-- End of Content Wrapper -->
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top" style="background-color: #008379;">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" style="background-color: #008379;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="login.html">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)"
+    template="<img src='https://3.files.edl.io/4f80/20/08/12/191120-9dc15182-a833-44a6-9db0-55080d7d824c.gif' />">
+</ngx-spinner>

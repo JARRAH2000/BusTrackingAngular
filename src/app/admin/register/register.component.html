@@ -1,0 +1,315 @@
+
+<div id="wrapper" style="background-color: #008379;">
+
+    <app-sidebar>
+
+    </app-sidebar>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column" style="background-color: #008379;">
+
+        <!-- Main Content -->
+        <div id="content" style="background-color: #008379;">
+            <!-- <div>
+                <app-navigation></app-navigation>
+            </div> -->
+            <div>
+
+
+
+
+                <!-- Page Content -->
+                <div class="container mt-5">
+                    <div class="section-header">
+                        <h2 style="color:white">New User</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">User Picture</h5>
+                                    <hr>
+                                    <div class="d-flex justify-content-center">
+                                        <img src="https://via.placeholder.com/150" alt=""
+                                            class="rounded-circle img-fluid" id="chosenImage">
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-lg-6 offset-lg-3">
+                                            <div class="d-flex justify-content-center">
+                                                <input type="file" accept="image/*" #file id="image" (change)="UploadUserImage(file.files)" class="btn btn-outline-primary btn-sm">
+                                            </div>
+                                            <div class="d-flex justify-content-center">
+                                                <button type="submit" class="btn btn-outline-primary btn-sm" id="removeImage" style="display:none" (click)="RemoveImage()">Remove</button>
+                                            </div>
+                                             <!-- <div class="d-flex justify-content-center">
+                                                <button type="submit" class="btn btn-outline-primary btn-sm">Add
+                                                    Picture</button>
+                                            </div>  -->
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">User Information</h5>
+                                    <hr>
+                                    <form [formGroup]="registerForm">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="firstname">First Name</label>
+                                                    <input type="text" class="form-control" id="firstname"
+                                                        placeholder="firstname" formControlName="firstname"
+                                                        (change)="getErrorMessage(registerForm.controls['firstname'],'firstName')">
+                                                    <p style="color:red" *ngIf="registerForm.controls['firstname'].invalid">
+                                                        {{fnameError}}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="middlname">Middle Name</label>
+                                                    <input type="text" class="form-control" id="middlename"
+                                                        placeholder="middlename" formControlName="middlename"
+                                                        (change)="getErrorMessage(registerForm.controls['middlename'],'middleName')">
+                                                    <p style="color:red" *ngIf="registerForm.controls['middlename'].invalid">
+                                                        {{mnameError}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="lastname">Last Name</label>
+                                                    <input type="text" class="form-control" id="lastname"
+                                                        placeholder="lastname" formControlName="lastname" 
+                                                        (change)="getErrorMessage(registerForm.controls['lastname'],'lastName')">
+                                                    <p style="color:red" *ngIf="registerForm.controls['lastname'].invalid">
+                                                        {{lnameError}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="phone">Phone</label>
+                                                    <input type="tel" class="form-control" id="phone"
+                                                        placeholder="07********" formControlName="phone"
+                                                        (change)="getErrorMessage(registerForm.controls['phone'],'phone')">
+                                                    <p style="color:red" *ngIf="registerForm.controls['phone'].invalid">
+                                                        {{phoneError}}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="birthdate">Birth date</label>
+                                                    <input type="date" class="form-control" id="birthdate"
+                                                        formControlName="birthdate"
+                                                        (change)="getErrorMessage(registerForm.controls['birthdate'],'birthdate')">
+                                                    <p style="color: red;" *ngIf="registerForm.controls['birthdate'].invalid">
+                                                        {{birthDateError}}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label style="display: inline-flex;">sex</label >
+                                                    <div class="form-row" >
+                                                        <div class="col-lg-6 col-md-6 col-sm-6" style="display: inline-flex;">
+                                                            <input  type="radio" id="male" value="M" checked
+                                                                name="sex" formControlName=sex
+                                                                (change)="getErrorMessage(registerForm.controls['sex'],'sex')">
+                                                            <label for="male"> &nbsp;Male</label>
+
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-6 col-sm-6" style="display: inline-flex;">
+                                                            <input type="radio" value="F" id="female" name="sex"
+                                                                formControlName="sex"
+                                                                (change)="getErrorMessage(registerForm.controls['sex'],'sex')">
+                                                            <label for="female" > &nbsp;Female</label>
+
+                                                        </div>
+                                                    </div>
+                                                    <p style="color:red" *ngIf="registerForm.controls['sex'].invalid">
+                                                        {{sexError}}
+                                                    </p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <div class="form-group">
+                                                    <label>Role</label>
+                                                    <div class="form-row">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3"  *ngFor="let role of roleService.roles">
+                                                           
+                                                            <input  checked type="radio" id="{{role.id}}" value="{{role.id}}"
+                                                                name="roleid" formControlName="roleid" (click)="IsDriver(role.name)"
+                                                                (change)="getErrorMessage(registerForm.controls['roleid'],'roleid')" >
+                                                            <label for="{{role.id}}" style="display: inline-flex;">&nbsp;{{role.name}}</label>
+
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <p style="color:red" *ngIf="registerForm.controls['roleid'].invalid">
+                                                        {{roleError}}
+                                                    </p>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="birthdate">License date</label>
+                                                    <input readonly type="date" class="form-control" id="licensedate"
+                                                        formControlName="licensedate"
+                                                        (change)="getErrorMessage(registerForm.controls['licensedate'],'licensedate')">
+                                                    <p style="color: red;" *ngIf="registerForm.controls['licensedate'].invalid">
+                                                        {{licanseDateError}}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            
+                                        </div>
+
+
+
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label for="email">Email</label>
+                                                    <input type="email" class="form-control" id="email"
+                                                        formControlName="email" placeholder="email"
+                                                        (change)="getErrorMessage(registerForm.controls['email'],'email')">
+                                                    <p style="color: red;" *ngIf="registerForm.controls['email'].invalid">
+                                                        {{emailError}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="password">Password</label>
+                                                    <input type="password" class="form-control" id="password"
+                                                        placeholder="password" formControlName="password"
+                                                        (change)="getErrorMessage(registerForm.controls['password'],'password')">
+                                                    <p style="color: red;" *ngIf="registerForm.controls['password'].invalid">
+                                                        {{passwordError}}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="confirmpassword">Confirm Password</label>
+                                                    <input type="password" class="form-control" id="confirmpassword"
+                                                        placeholder="confirmpassword" formControlName="confirmPassword"
+                                                        (change)="getErrorMessage(registerForm.controls['confirmPassword'],'confirmPassword')">
+                                                    <p style="color:red" *ngIf="registerForm.controls['confirmPassword'].invalid">
+                                                        {{confirmPasswordError}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6 offset-lg-3">
+                                                <div class="form-group">
+                                                    <p style="color:red" *ngIf="!passwordsMatching()">
+                                                        {{passwordMatch}}
+                                                    </p>
+                                                    <button type="submit" class="btn btn-primary btn-block"
+                                                        (click)="checkAllFields()">Register</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br>
+                </div>
+                <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)"   template="<img src='https://3.files.edl.io/4f80/20/08/12/191120-9dc15182-a833-44a6-9db0-55080d7d824c.gif' />">  </ngx-spinner>
+
+                <script>
+                    $(document).ready(function () {
+                        // Get the tallest column height
+                        var maxHeight = 0;
+                        $('.row > .col').each(function () {
+                            var height = $(this).outerHeight();
+                            if (height > maxHeight) {
+                                maxHeight = height;
+                            }
+                        });
+
+                        // Set all columns to the same height
+                        $('.row > .col').css('min-height', maxHeight);
+                    });
+                </script>
+
+                <!-- </body>
+
+</html> -->
+
+            </div>
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <!-- <footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2021</span>
+        </div>
+    </div>
+</footer> -->
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top" style="background-color: #008379;">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" style="background-color: #008379;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="login.html">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+

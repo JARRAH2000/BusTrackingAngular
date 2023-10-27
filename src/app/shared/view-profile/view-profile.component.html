@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile | Impact</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <!-- Page Content -->
+    <div class="container mt-5">
+        <div class="section-header">
+            <h2>Student Profile</h2>
+        </div>
+       <!--  <app-row (Sender)="GetValues($event)"></app-row> -->
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Picture</h5>
+                        <hr>
+                        <div class="d-flex justify-content-center">
+                            <img src="{{image}}" alt="" class="rounded-circle img-fluid">
+                        </div>
+                        <hr>
+                        
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Information</h5>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-lg-10 offset-lg-1">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" value="{{name}}" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-10 offset-lg-1">
+                                <div class="form-group">
+                                    <label for="state">Status</label>
+                                    <input type="text" class="form-control" id="state" value="{{status}}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <script>
+        $(document).ready(function () {
+            // Get the tallest column height
+            var maxHeight = 0;
+            $('.row > .col').each(function () {
+                var height = $(this).outerHeight();
+                if (height > maxHeight) {
+                    maxHeight = height;
+                }
+            });
+
+            // Set all columns to the same height
+            $('.row > .col').css('min-height', maxHeight);
+        });
+    </script>
+
+</body>
+
+</html>

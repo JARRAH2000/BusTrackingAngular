@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile | Impact</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+
+    <!-- Page Content -->
+    <div class="container mt-5">
+        <div class="section-header">
+            <h2>Bus</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Bus Picture</h5>
+                        <hr>
+                        <div class="d-flex justify-content-center">
+                            <img src="https://via.placeholder.com/150" alt="" class="rounded-circle img-fluid">
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-lg-6 offset-lg-3">
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-outline-primary btn-sm">Change Picture</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Bus Information</h5>
+                        <hr>
+                        <form>
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div class="form-group">
+                                        <label for="vrp">VRP</label>
+                                        <input type="text" class="form-control" id="vrp" name="vrp" value="vrp" >
+                                    </div>
+                                </div>
+                            
+                                <div class="col-lg-5 offset-lg-1">
+                                    <div class="form-group">
+                                        <label for="model">Model</label>
+                                        <input type="text" class="form-control" id="model" name="model">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div class="form-group">
+                                        <label for="brand">Brand</label>
+                                        <input type="text" class="form-control" id="brand" name="brand">
+
+                                    </div>
+                                </div>
+                            
+                                <div class="col-lg-5 offset-lg-1">
+                                    <div class="form-group">
+                                        <label for="capacity">Capacity</label>
+                                        <input type="number" class="form-control" min="1" id="capacity" name="capacity">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div class="form-group">
+                                        <label for="statusid">Status</label>
+                                        <input type="text" class="form-control" id="statusid" name="statusid">
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 offset-lg-1">
+                                    <div class="form-group">
+                                        <label for="licensedate">License Date</label>
+                                        <input type="date" class="form-control" id="licensedate" name="licensedate">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 offset-lg-3">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-block">Update</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Get the tallest column height
+            var maxHeight = 0;
+            $('.row > .col').each(function () {
+                var height = $(this).outerHeight();
+                if (height > maxHeight) {
+                    maxHeight = height;
+                }
+            });
+
+            // Set all columns to the same height
+            $('.row > .col').css('min-height', maxHeight);
+        });
+    </script>
+
+</body>
+
+</html>

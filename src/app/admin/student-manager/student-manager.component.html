@@ -1,0 +1,422 @@
+<div id="wrapper" style="background-color: #008379;">
+
+    <app-sidebar>
+
+    </app-sidebar>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column" style="background-color: #008379;">
+
+        <!-- Main Content -->
+        <div id="content" style="background-color: #008379;">
+            <!-- <div>
+                <app-navigation></app-navigation>
+            </div> -->
+            <div>
+
+                <!-- Page Content -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800" style="color:white;text-align: center;font-size: 35px;">
+                        students</h1><br>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <!-- <div class="card-header py-3">
+                            <form>
+                                <label for="from">From&nbsp;</label>
+                                <input type="date" [(ngModel)]="from" name="from" id="from">&nbsp; &nbsp;
+                                <label for="to">To&nbsp;</label>
+                                <input type="date" [(ngModel)]="to" name="to">
+                                &nbsp; 
+                                <button  style="background-color: #008379;color:white" (click)="DateInterval()">search</button>
+                            </form>
+                        </div> -->
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>image</th>
+                                            <th>Name</th>
+                                            <th>Status</th>
+                                            <th>Parent</th>
+                                            <th>Parent Phone</th>
+                                            <th>Parent Email</th>
+                                            <th>Manage</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+
+                                    </tfoot>
+                                    <tbody>
+                                        <tr *ngFor="let student of studentService.allStudents">
+                                            <td><img src="../../../assets/Images/{{student.image}}" width="100"
+                                                    height="100"></td>
+                                            <td>{{student.name}}</td>
+                                            <td>{{student.status.status}}</td>
+                                            <td>{{student.parent.user.firstname}} {{student.parent.user.lastname}}</td>
+                                            <td>{{student.parent.user.phone}}</td>
+                                            <td>{{student.parent.user.logins[0].email}}</td>
+                                            <td>
+                                                <button type="submit" (click)="OpenDialog(this.Details,student.id)">Details</button>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+
+
+
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <!--Update Dialog-->
+                <ng-template #ShowDetails>
+
+                    <!-- Page Content -->
+                    <div class="container mt-5">
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+
+                                        <form>
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <img src="../../../assets/Images/{{studentService.student.image}}"
+                                                                id="image" height="250" width="240">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-8" id="info">
+
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="form-group">
+                                                                    <label>Full Name: {{studentService.student.name}}
+                                                                        {{studentService.student.parent.user.firstname}}
+                                                                        {{studentService.student.parent.user.middlename}}
+                                                                        {{studentService.student.parent.user.lastname}}</label>
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row">
+
+                                                            <div class="col-lg-12">
+                                                                <div class="form-group">
+                                                                    <label for="name">Status:
+                                                                        {{studentService.student.status.status}}</label>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="form-group">
+                                                                    <label for="job">Parent Email:
+                                                                        {{studentService.student.parent.user.logins[0].email}}</label>
+
+
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="form-group">
+                                                                    <label>Parent Phone:
+                                                                        {{studentService.student.parent.user.phone}}</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="form-group">
+                                                                    <label>BirthDate:
+                                                                        {{studentService.student.birthdate}}</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="form-group">
+                                                                    <label for="job">Coordinate:
+                                                                        {{studentService.student.longitude}}
+                                                                        {{studentService.student.latitude}}</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="form-group">
+                                                                    <label for="job">Absences:
+                                                                        {{studentService.absenceRecord.absenes.length}}</label>
+                                                                </div>
+                                                            </div>
+                                                        </div> -->
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <!--  <div class="col-lg-4">
+                                                        <button mat-dialog-close
+                                                            (click)="Updatestudent(studentService.student.id,studentService.student.statusid==1?2:1)">{{studentService.student.statusid==1?'set Available':'set studenty'}}</button>
+                                                    </div> -->
+                                                    <div class="col-lg-4">
+                                                        <button mat-dialog-close type="submit"
+                                                            (click)="OpenDialog(this.Delete,studentService.student.id)">Delete</button>
+                                                    </div>
+
+                                                    <div class="col-lg-4">
+                                                        <button mat-dialog-close type="submit" (click)="OpenDialog(this.Update,studentService.student.id)">
+                                                            Update
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <button mat-dialog-close type="submit" >Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </ng-template>
+
+                <!--Delete Dialog-->
+                <ng-template #ConfirmDeletion>
+                    <!-- Page Content -->
+                    <div class="container mt-5">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-lg-9" id="info">
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="form-group">
+                                                                    <label style="color:white">Are you sure ?</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <button mat-dialog-close type="submit"
+                                                            (click)="DeleteStudent(studentService.student.id)">Delete</button>
+                                                    </div>
+                                                    &nbsp;&nbsp;&nbsp;
+                                                    <div class="col-lg-4">
+                                                        <button mat-dialog-close type="submit"
+                                                            (click)="OpenDialog(this.Details,studentService.student.id)">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </ng-template>
+
+
+
+                <ng-template #Update>
+                    <!-- Page Content -->
+                    <div class="container mt-5">
+                        
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h1 class="card-title text-center">Student Picture</h1>
+                                        <hr>
+                                        <div class="d-flex justify-content-center">
+                                            <img src="../../../assets/Images/{{studentService.student.image}}" id="chosenImage" alt=""
+                                                class="rounded-circle img-fluid">
+
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 offset-lg-3">
+                                                <div class="d-flex justify-content-center">
+                                                    <input type="file" accept="image/*" #file
+                                                        (change)="UploadStudentImage(file.files)" id="image"
+                                                        class="btn btn-outline-primary btn-sm">
+                                                    <button type="submit" (click)="RemoveImage()" style="display: none;"
+                                                        id="remove">Remove</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h1 class="card-title text-center">Student Information</h1>
+                                        <hr>
+                                        <form [formGroup]="updateForm">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label for="name">Name</label>
+                                                        <input type="text" formControlName="name" class="form-control" id="name">
+                                                        <p *ngIf="updateForm.controls['name'].invalid&&(updateForm.controls['name'].dirty||updateForm.controls['name'].touched)">
+                                                            Name must not be empty and length must not exceed 50 characters
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+
+                                                        <label for="longitude">Longitude</label>
+                                                        <input type="text" formControlName="longitude"
+                                                            class="form-control" id="longitude">
+                                                            <p *ngIf="updateForm.controls['longitude'].invalid&&(updateForm.controls['longitude'].dirty||updateForm.controls['longitude'].touched)">
+                                                                Longitude must not be empty and length must not exceed 50 characters
+                                                            </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label for="latitude">Latitude</label>
+                                                        <input type="text" formControlName="latitude" class="form-control" id="latitude" >
+                                                        <p *ngIf="updateForm.controls['latitude'].invalid&&(updateForm.controls['latitude'].dirty||updateForm.controls['latitude'].touched)">
+                                                            Latitude must not be empty and length must not exceed 50 characters
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-lg-8">
+                                                    <div class="form-group">
+                                                        <button type="submit" (click)="UpdateStudent()" mat-dialog-close
+                                                            class="btn btn-primary btn-block">Update</button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <button type="submit" mat-dialog-close (click)="OpenDialog(this.Details,studentService.student.id)"
+                                                            class="btn btn-primary btn-block">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                </ng-template>
+
+                <script>
+                    $(document).ready(function () {
+                        // Get the tallest column height
+                        var maxHeight = 0;
+                        $('.row > .col').each(function () {
+                            var height = $(this).outerHeight();
+                            if (height > maxHeight) {
+                                maxHeight = height;
+                            }
+                        });
+
+                        // Set all columns to the same height
+                        $('.row > .col').css('min-height', maxHeight);
+                    });
+                </script>
+            </div>
+        </div>
+        <!-- End of Main Content -->
+    </div>
+    <!-- End of Content Wrapper -->
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top" style="background-color: #008379;">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" style="background-color: #008379;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="login.html">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)"
+    template="<img src='https://3.files.edl.io/4f80/20/08/12/191120-9dc15182-a833-44a6-9db0-55080d7d824c.gif' />">
+</ngx-spinner>

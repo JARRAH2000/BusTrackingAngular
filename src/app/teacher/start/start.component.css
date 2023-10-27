@@ -1,0 +1,12 @@
+#notrip {
+    font-size: 100px;
+    padding: 50px;
+    color: white;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    #notrip {
+        font-size: 10vw;
+    }
+}

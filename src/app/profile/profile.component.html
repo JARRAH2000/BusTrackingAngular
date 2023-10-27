@@ -1,0 +1,190 @@
+<!-- Page Content -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card-body" id="backButton" (click)="BackToDashboard()">
+                <h5 class="card-title text-center">Back to dashboard</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 offset-lg-1">
+            <div class="section-header">
+                <h2>Profile</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center">My Picture</h5>
+                    <hr>
+                    <div class="d-flex justify-content-center">
+                        <img src="https://via.placeholder.com/150" alt="" class="rounded-circle img-fluid"
+                            id="chosenImage">
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-6 offset-lg-3">
+                            <div class="d-flex justify-content-center">
+                                <input type="file" accept="image/*" #file id="image"
+                                    (change)="UploadUserImage(file.files)" class="btn btn-outline-primary btn-sm">
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-outline-primary btn-sm" id="removeImage"
+                                    style="display:none" (click)="RemoveImage()">Remove</button>
+                            </div>
+                            <!-- <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-outline-primary btn-sm">Add Picture</button>
+                                </div>  -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center">My Information</h5>
+                    <hr>
+                    <form [formGroup]="profileForm">
+                        <div class="row">
+                            <div class="col-lg-10 offset-lg-1">
+                                <div class="form-group">
+                                    <label for="firstname">First Name</label>
+                                    <input type="text" class="form-control" id="firstname" formControlName="firstname">
+                                    <p *ngIf="profileForm.controls['firstname'].invalid">
+                                        First name must not exceed 50 character nad must not be empty
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-10 offset-lg-1">
+                                <div class="form-group">
+                                    <label for="middlname">Middle Name</label>
+                                    <input type="text" class="form-control" id="middlename"
+                                        formControlName="middlename">
+                                    <p *ngIf="profileForm.controls['middlename'].invalid">
+                                        Middle name must not exceed 50 character nad must not be empty
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-10 offset-lg-1">
+                                <div class="form-group">
+                                    <label for="lastname">Last Name</label>
+                                    <input type="text" class="form-control" id="lastname" formControlName="lastname">
+                                    <p *ngIf="profileForm.controls['lastname'].invalid">
+                                        Last name must not exceed 50 character nad must not be empty
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-10 offset-lg-1">
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="tel" class="form-control" id="phone" formControlName="phone">
+                                    <p *ngIf="profileForm.controls['phone'].invalid">
+                                        Phone must be of exactly 10 digit
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-10 offset-lg-1">
+                                <div class="form-group">
+                                    <label for="birthdate">birthdate</label>
+                                    <input class="form-control" id="birthdate" formControlName="birthdate" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-10 offset-lg-1">
+                                <div class="form-group">
+                                    <label for="sex">sex</label>
+                                    <input class="form-control" id="sex" formControlName="sex" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 offset-lg-3">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block"
+                                        (click)="UpdateUser()">Update</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center">My password</h5>
+                    <hr>
+                    <form [formGroup]="loginForm">
+                        <div class="row">
+                            <div class="col-lg-10 offset-lg-1">
+                                <div class="form-group">
+                                    <label for="oldpassword">Old Password</label>
+                                    <input type="password" class="form-control" id="oldpassword"
+                                        formControlName="oldPassword" value="oldpassword">
+                                    <p *ngIf="loginForm.controls['oldPassword'].invalid">
+                                        {{oldPasswordError}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-10 offset-lg-1">
+                                <div class="form-group">
+                                    <label for="newpassword">New Password</label>
+                                    <input type="password" class="form-control" id="newpassword"
+                                        formControlName="newPassword" value="newpassword">
+                                    <p *ngIf="loginForm.controls['newPassword'].invalid">
+                                        {{newPasswordError}}
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8 offset-lg-2">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block"
+                                        (click)="UpdateLoginData()">Update</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)"   template="<img src='https://3.files.edl.io/4f80/20/08/12/191120-9dc15182-a833-44a6-9db0-55080d7d824c.gif' />">  </ngx-spinner>
+
+
+<script>
+    $(document).ready(function () {
+        // Get the tallest column height
+        var maxHeight = 0;
+        $('.row > .col').each(function () {
+            var height = $(this).outerHeight();
+            if (height > maxHeight) {
+                maxHeight = height;
+            }
+        });
+
+        // Set all columns to the same height
+        $('.row > .col').css('min-height', maxHeight);
+    });
+</script>

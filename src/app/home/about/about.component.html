@@ -1,0 +1,22 @@
+<!-- ======= About Us Section ======= -->
+<section id="about" class="about">
+  <div class="container" data-aos="fade-up">
+    <div class="section-header">
+      <h2>About Us</h2>
+      <p>{{contentService.content[0].about}}</p>
+    </div>
+    <div class="row gy-4">
+      <div class="col-lg-4">
+        <img src="assets/Images/{{contentService.content[0].mainlogo}}" class="img-fluid rounded-4 mb-4" alt="">
+      </div>
+      <div class="col-lg-8">
+        <div class="content ps-0 ps-lg-5">
+          <p class="fst-italic">
+            {{contentService.content[0].paragraph}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- End About Us Section -->
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" template="<img src='https://3.files.edl.io/4f80/20/08/12/191120-9dc15182-a833-44a6-9db0-55080d7d824c.gif' />"></ngx-spinner>

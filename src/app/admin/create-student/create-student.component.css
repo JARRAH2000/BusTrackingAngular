@@ -1,0 +1,148 @@
+body {
+    color: white;
+}
+
+.form-box {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.form-header {
+    margin-bottom: 20px;
+}
+
+.form-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.form-body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-row {
+    margin-bottom: 20px;
+    flex-basis: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    flex-basis: 33.33%;
+    margin-right: 20px;
+}
+
+.form-group:last-child {
+    margin-right: 0;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.card {
+    background-color: #008374;
+    padding: 10px;
+    height: 100%;
+}
+
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+button[type="submit"] {
+    border: 0;
+    padding: 14px 45px;
+    background-color: white;
+    color: #008374;
+    transition: 0.4s;
+    border-radius: 50px;
+}
+
+.section-header {
+    text-align: center;
+    padding-bottom: 10px;
+    color: white;
+}
+
+.section-header h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.section-header h2:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--color-primary);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.notify .form-group label,
+.notify .form-group input[type="radio"] {
+    display: inline-flex
+}
+
+.row {
+    color: white
+}
+
+
+#statusid,
+#parentid {
+    color: black;
+    padding: 5px;
+    height: 39px;
+    width: 100%;
+    border-radius: 4px;
+}
+
+/* select option,input{
+    font-size: 20px;
+} */
+
+@media (max-width: 767px) {
+    .form-row {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form-row>div {
+        width: 33.33%;
+        text-align: left;
+    }
+
+    .form-row>div:first-child {
+        text-align: left;
+    }
+}

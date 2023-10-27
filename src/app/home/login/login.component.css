@@ -1,0 +1,15 @@
+p{
+    color:red;
+}
+h1,label{
+    color:white;
+}
+button{
+    background-color: white;
+    color:#008379;
+}
+form,.card{
+    background:#008379;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}

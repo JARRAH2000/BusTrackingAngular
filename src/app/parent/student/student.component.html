@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile | Impact</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+
+    <!-- Page Content -->
+    <div class="container mt-5">
+        <div class="section-header">
+            <h2>Student Profile</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Student Picture</h5>
+                        <hr>
+                        <div class="d-flex justify-content-center">
+                            <img src="https://via.placeholder.com/150" alt="" class="rounded-circle img-fluid">
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-lg-6 offset-lg-3">
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-outline-primary btn-sm">Change Picture</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Student Information</h5>
+                        <hr>
+                        <form>
+                            <div class="row">
+                                <div class="col-lg-10 offset-lg-1">
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input type="text" class="form-control" id="name" value="name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-10 offset-lg-1">
+                                    <div class="form-group">
+                                        <label for="birthdate">birthdate</label>
+                                        <input type="date" class="form-control" id="birthdate">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-10 offset-lg-1">
+                                    <div class="form-group">
+                                        <label for="sex">sex</label>
+                                        <input type="text" class="form-control" id="sex">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-10 offset-lg-1">
+                                    <div class="form-group">
+                                        <label for="longitude">longitude</label>
+                                        <input type="text" class="form-control" id="longitude">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-10 offset-lg-1">
+                                    <div class="form-group">
+                                        <label for="latitude">latitude</label>
+                                        <input type="text" class="form-control" id="latitude">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 offset-lg-3">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-block">Update</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Student Notifications</h5>
+                        <hr>
+                        <form class="notify">
+                            <div class="container">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="form-row">
+                                            <div class="col-lg-6 col-sm-6">
+                                                <label>Absence</label>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                <input type="radio" id="absenceOn" name="absence" value="On">
+                                                <label for="absenceOn"> On</label>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                <input type="radio" id="absenceOff" name="absence" value="Off">
+                                                <label for="absenceOff"> Off</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="form-row">
+                                            <div class="col-lg-6 col-sm-6">
+                                                <label>Bus</label>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                <input type="radio" id="BusOn" name="Bus" value="On">
+                                                <label for="BusOn"> On</label>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                <input type="radio" id="BusOff" name="Bus" value="Off">
+                                                <label for="BusOff"> Off</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="container">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="form-row">
+                                            <div class="col-lg-6 col-sm-6">
+                                                <label>To School</label>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                <input type="radio" id="ToSchoolOn" name="ToSchool" value="On">
+                                                <label for="ToSchoolOn"> On</label>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                <input type="radio" id="ToSchoolOff" name="ToSchool" value="Off">
+                                                <label for="ToSchoolOff"> Off</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="container">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="form-row">
+                                            <div class="col-lg-6 col-sm-6">
+                                                <label>In School</label>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                <input type="radio" id="InSchoolOn" name="InSchool" value="On">
+                                                <label for="InSchoolOn"> On</label>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                <input type="radio" id="InSchoolOff" name="InSchool" value="Off">
+                                                <label for="InSchoolOff"> Off</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="container">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="form-row">
+                                            <div class="col-lg-6 col-sm-6">
+                                                <label>To Home</label>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                <input type="radio" id="ToHomeOn" name="ToHome" value="On">
+                                                <label for="ToHomeOn"> On</label>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                <input type="radio" id="ToHomeOff" name="ToHome" value="Off">
+                                                <label for="ToHomeOff"> Off</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="form-row">
+                                            <div class="col-lg-6 col-sm-6">
+                                                <label>In Home</label>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                <input type="radio" id="InHomeOn" name="InSchool" value="On">
+                                                <label for="InHomeOn"> On</label>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                <input type="radio" id="InHomeOff" name="InHome" value="Off">
+                                                <label for="InHomeOff"> Off</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-8 offset-lg-2">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-block">Update</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Get the tallest column height
+            var maxHeight = 0;
+            $('.row > .col').each(function () {
+                var height = $(this).outerHeight();
+                if (height > maxHeight) {
+                    maxHeight = height;
+                }
+            });
+
+            // Set all columns to the same height
+            $('.row > .col').css('min-height', maxHeight);
+        });
+    </script>
+
+</body>
+
+</html>

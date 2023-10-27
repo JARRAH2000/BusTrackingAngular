@@ -1,0 +1,10 @@
+.form-group{
+margin-top: -10px;
+margin-bottom: -10px;
+}
+textarea{
+    resize: none;
+}
+.info-item:hover, .d-flex :hover{
+cursor: pointer;
+}

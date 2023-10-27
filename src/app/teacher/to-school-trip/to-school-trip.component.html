@@ -1,0 +1,63 @@
+<section>
+    <div class="row">
+      <div class="col-lg-8">
+        <div id="map" style="width: 1000px; height: 500px;"></div>
+      </div>
+      
+      <div class="col-lg-2">
+        <h1>Waiting you: </h1>
+        <ul>
+          <li *ngFor="let Tstudent of WaitingStudents">
+            {{Tstudent.student.name}} {{Tstudent.student.parent.user.firstname}}
+            <button type="submit" (click)="Grab(Tstudent)">Grap</button>
+            <button type="submit" (click)="Absence(Tstudent)">Absent</button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-2">
+        <div class="row">
+          <h1>In Bus: </h1>
+          <li *ngFor="let Tstudent of InBusStudents">
+            {{Tstudent.student.name}} {{Tstudent.student.parent.user.firstname}}
+            <button type="submit" (click)="Absence(Tstudent)">Absent</button>
+          </li>
+        </div>
+
+        <div class="row">
+          <h1>Absence: </h1>
+          <li *ngFor="let Tstudent of AbsencetStudents">
+            {{Tstudent.student.name}} {{Tstudent.student.parent.user.firstname}}
+            <button type="submit" (click)="Grab(Tstudent)">Grab</button>
+          </li>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 offset-lg-9">
+
+          <button type="submit" style="color: red;" (click)="EndTripDialog()">End Trip</button>
+      </div>
+  </div>
+    <ng-template #Confirm>
+      <p>Are you sure?</p>
+      
+      <button mat-dialog-close type="submit" (click)="EndTrip('Yes')">Yes,end the trip</button>
+      
+      <button mat-dialog-close type="submit">Cancel</button>
+    </ng-template>
+
+    <ng-template #ConfirmWaiting>
+      <p>Some students wait the bus?</p>
+
+      <button mat-dialog-close type="submit" (click)="EndTrip('Absence')">End trip and consider them absence</button>
+      
+      <button mat-dialog-close type="submit" (click)="EndTrip('Home')">End trip and return them to home</button>
+      
+      <button mat-dialog-close type="submit">Cancel</button>
+    </ng-template>
+</section>
+
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)"
+  template="<img src='https://3.files.edl.io/4f80/20/08/12/191120-9dc15182-a833-44a6-9db0-55080d7d824c.gif' />">
+</ngx-spinner>
